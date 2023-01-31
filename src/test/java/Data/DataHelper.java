@@ -3,6 +3,8 @@ package Data;
 import com.github.javafaker.Faker;
 import lombok.Value;
 
+import java.util.Locale;
+
 public class DataHelper {
     @Value
     public static class Card{
@@ -12,7 +14,7 @@ public class DataHelper {
         String cardHolderName;
         String cvc;
     }
-
+    private static final Faker faker = new Faker(Locale.ENGLISH);
     public static String getValidNumber(){
         return "5536927845986019";
     }
@@ -78,6 +80,62 @@ public class DataHelper {
     }
 
     public static String getCardHolderName() {
-        return fakerEng.name().name().toUpperCase();
+        return faker.name().name().toUpperCase();
+    }
+
+    public static String getThreeLettersName(){
+        return "Sam";
+    }
+
+    public static String getHyphenatedName(){
+        return "Anna Smirnova-Ivanova";
+    }
+
+    public static String getNameWithSpace(){
+        return "Vasiliy A Gromov";
+    }
+
+    public static String getTwentyLettersName(){
+        return "Stayhvbnmkloirfghtop";
+    }
+
+    public static String getTwoLettersName(){
+        return "Am";
+    }
+
+    public static String getNumericalName(String numbers){
+        return faker.numerify(numbers);
+    }
+
+    public static String getSpecialSymbolsName(){
+        return "%*^)&*~@";
+    }
+
+    public static String getTwentyOneLettersName(){
+        return "Stayhvbnmkloirfghtoph";
+    }
+
+    public static String getSpacesName(){
+        return "     ";
+    }
+
+    public static String getEmptyName(){
+        return "";
+    }
+
+    public static String getCVC(){
+        return faker.numerify("###");
+    }
+
+    public static String getTwoNumbersCVC(){
+        return faker.numerify("#");
+    }
+
+    public static String getOneNumberCVC(){
+        return faker.numerify("##");
+    }
+
+    public static String getEmptyCVC(){
+        return "";
     }
 }
