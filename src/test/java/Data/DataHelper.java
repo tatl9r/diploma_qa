@@ -3,6 +3,8 @@ package Data;
 import com.github.javafaker.Faker;
 import lombok.Value;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 public class DataHelper {
@@ -31,6 +33,10 @@ public class DataHelper {
         return "0000000000000000";
     }
 
+    public static String getMonth(int month){
+        return LocalDate.now().plusMonths(month).format(DateTimeFormatter.ofPattern("MM"));
+    }
+
     public static String getFirstMonth(){
         return "01";
     }
@@ -55,6 +61,10 @@ public class DataHelper {
         return "";
     }
 
+    public static String getYear(int year){
+        return LocalDate.now().plusYears(year).format(DateTimeFormatter.ofPattern("yy"));
+    }
+    
     public static String getCurrentYear(){
         return "23";
     }
