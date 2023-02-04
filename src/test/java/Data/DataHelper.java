@@ -17,12 +17,16 @@ public class DataHelper {
         String cvc;
     }
     private static final Faker faker = new Faker(Locale.ENGLISH);
-    public static String getValidNumber(){
-        return "5536927845986019";
+    public static String getApprovedNumber(){
+        return "4444 4444 4444 4441";
+    }
+
+    public static String getDeclinedNumber(){
+        return "4444 4444 4444 4442";
     }
 
     public static String getFifteenDigitNumber(){
-        return "553692784598601";
+        return "4444 4444 4444 444";
     }
 
     public static String getEmptyNumber(){
@@ -30,7 +34,7 @@ public class DataHelper {
     }
 
     public static String getSameNumber(){
-        return "0000000000000000";
+        return "0000 0000 0000 0000";
     }
 
     public static String getMonth(int month){
@@ -64,7 +68,7 @@ public class DataHelper {
     public static String getYear(int year){
         return LocalDate.now().plusYears(year).format(DateTimeFormatter.ofPattern("yy"));
     }
-    
+
     public static String getCurrentYear(){
         return "23";
     }

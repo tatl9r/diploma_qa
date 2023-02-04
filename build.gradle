@@ -18,8 +18,11 @@ dependencies {
     testImplementation 'mysql:mysql-connector-java:8.0.30'
     testImplementation group: 'org.postgresql', name: 'postgresql', version: '42.4.0'
     testImplementation 'com.github.javafaker:javafaker:1.0.2'
+    testImplementation 'com.codeborne:selenide:6.9.0'
+    testImplementation 'commons-dbutils:commons-dbutils:1.7'
 }
 
 test {
     useJUnitPlatform()
+    systemProperty 'selenide.headless', System.getProperty('selenide.headless')
 }
