@@ -1,4 +1,4 @@
-package Data;
+package ru.netology.data;
 
 import com.github.javafaker.Faker;
 import lombok.Value;
@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
-public class DataHelper {
+public class DataGenerator {
     @Value
     public static class Card{
         String number;
@@ -25,11 +25,11 @@ public class DataHelper {
         return "4444 4444 4444 4442";
     }
 
-    public static String getFifteenDigitNumber(){
-        return "4444 4444 4444 444";
+    public static String getRandomDigitNumber(int count){
+        return faker.number().digits(count);
     }
 
-    public static String getEmptyNumber(){
+    public static String getEmptyString(){
         return "";
     }
 
@@ -61,37 +61,16 @@ public class DataHelper {
         return "1";
     }
 
-    public static String getEmptyMonth(){
-        return "";
+
+    public static String getYear(int plusYear){
+        return LocalDate.now().plusYears(plusYear).format(DateTimeFormatter.ofPattern("yy"));
     }
 
-    public static String getYear(int year){
-        return LocalDate.now().plusYears(year).format(DateTimeFormatter.ofPattern("yy"));
-    }
-
-    public static String getCurrentYear(){
-        return "23";
-    }
-
-    public static String getPlusNineYear(){
-        return "32";
-    }
-
-    public static String getLastYear(){
-        return "22";
-    }
-
-    public static String getPlusTenYear(){
-        return "33";
-    }
 
     public static String getOneNumberYear(){
         return "1";
     }
 
-    public static String getEmptyYear(){
-        return "";
-    }
 
     public static String getCardHolderName() {
         return faker.name().name().toUpperCase();
@@ -133,9 +112,6 @@ public class DataHelper {
         return "     ";
     }
 
-    public static String getEmptyName(){
-        return "";
-    }
 
     public static String getCVC(){
         return faker.numerify("###");
@@ -149,7 +125,4 @@ public class DataHelper {
         return faker.numerify("##");
     }
 
-    public static String getEmptyCVC(){
-        return "";
-    }
 }
