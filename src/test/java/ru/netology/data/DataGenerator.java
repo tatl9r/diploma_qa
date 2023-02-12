@@ -66,7 +66,6 @@ public class DataGenerator {
         return LocalDate.now().plusYears(plusYear).format(DateTimeFormatter.ofPattern("yy"));
     }
 
-
     public static String getOneNumberYear(){
         return "1";
     }
