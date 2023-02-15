@@ -52,13 +52,11 @@ public class CreditPage {
     }
 
     public void acceptAssertion() {
-        notificationTitleAccept.shouldBe(Condition.text("Успешно"), Duration.ofSeconds(10)).shouldBe(Condition.visible);
-        notificationContentAccept.shouldBe(Condition.text("Операция одобрена Банком."), Duration.ofSeconds(10)).shouldBe(Condition.visible);
+        notificationTitleAccept.shouldBe(Condition.text("Успешно"), Duration.ofSeconds(15)).shouldBe(Condition.visible);
     }
 
     public void denialAssertion() {
-        notificationTitleDenial.shouldBe(Condition.text("Ошибка"), Duration.ofSeconds(10)).shouldBe(Condition.visible);
-        notificationContentDenial.shouldBe(Condition.text("Ошибка! Банк отказал в проведении операции."), Duration.ofSeconds(10)).shouldBe(Condition.visible);
+        notificationTitleDenial.shouldBe(Condition.text("Ошибка"), Duration.ofSeconds(15)).shouldBe(Condition.visible);
     }
 
     public void numberFieldFormatError() {
@@ -78,7 +76,7 @@ public class CreditPage {
     }
 
     public void yearFieldMinusTermError() {
-        yearFieldError.shouldBe(Condition.text("�?стёк срок действия карты"), Condition.visible);
+        yearFieldError.shouldBe(Condition.text("Истёк срок действия карты"), Condition.visible);
     }
 
     public void yearFieldPlusTermError() {

@@ -11,7 +11,7 @@ import ru.netology.page.CreditPage;
 import static com.codeborne.selenide.Selenide.open;
 
 
-public class CreditTest {
+public class   CreditTest {
 
     public CreditPage creditPage = new CreditPage();
     public DataHelper dataHelper = new DataHelper();
