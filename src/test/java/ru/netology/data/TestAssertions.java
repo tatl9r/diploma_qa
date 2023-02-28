@@ -2,7 +2,7 @@ package ru.netology.data;
 
 import org.junit.jupiter.api.Assertions;
 
-public class DataHelper {
+public class TestAssertions {
     public void payApprovedStatusAssertion() {
 
         String statusExpected = "APPROVED";

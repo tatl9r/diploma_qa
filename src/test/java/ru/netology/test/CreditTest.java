@@ -4,7 +4,7 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 import ru.netology.data.DataGenerator;
-import ru.netology.data.DataHelper;
+import ru.netology.data.TestAssertions;
 import ru.netology.data.DbInteraction;
 import ru.netology.page.CreditPage;
 
@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class   CreditTest {
 
     public CreditPage creditPage = new CreditPage();
-    public DataHelper dataHelper = new DataHelper();
+    public TestAssertions testAssertions = new TestAssertions();
 
     @BeforeEach
     void setup() {
@@ -42,9 +42,9 @@ public class   CreditTest {
         creditPage.continueClick();
         Assertions.assertAll(
                 creditPage::acceptAssertion,
-                dataHelper::payApprovedStatusAssertion,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payApprovedStatusAssertion,
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -54,9 +54,9 @@ public class   CreditTest {
         creditPage.continueClick();
         Assertions.assertAll(
                 creditPage::denialAssertion,
-                dataHelper::payDeclinedStatusAssertion,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payDeclinedStatusAssertion,
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -66,8 +66,8 @@ public class   CreditTest {
         creditPage.continueClick();
         Assertions.assertAll(
                 creditPage::denialAssertion,
-                dataHelper::payDenialCountAssertion,
-                dataHelper::orderDenialCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -78,8 +78,8 @@ public class   CreditTest {
         Assertions.assertAll(
                 creditPage::denialAssertion,
                 creditPage::numberFieldFormatError,
-                dataHelper::payDenialCountAssertion,
-                dataHelper::orderDenialCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -90,8 +90,8 @@ public class   CreditTest {
         Assertions.assertAll(
                 creditPage::denialAssertion,
                 creditPage::numberFieldFormatError,
-                dataHelper::payDenialCountAssertion,
-                dataHelper::orderDenialCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -101,9 +101,9 @@ public class   CreditTest {
         creditPage.continueClick();
         Assertions.assertAll(
                 creditPage::acceptAssertion,
-                dataHelper::payApprovedStatusAssertion,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payApprovedStatusAssertion,
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -113,9 +113,9 @@ public class   CreditTest {
         creditPage.continueClick();
         Assertions.assertAll(
                 creditPage::acceptAssertion,
-                dataHelper::payApprovedStatusAssertion,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payApprovedStatusAssertion,
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -126,8 +126,8 @@ public class   CreditTest {
         Assertions.assertAll(
                 creditPage::denialAssertion,
                 creditPage::monthFieldTermError,
-                dataHelper::payDenialCountAssertion,
-                dataHelper::orderDenialCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -138,8 +138,8 @@ public class   CreditTest {
         Assertions.assertAll(
                 creditPage::denialAssertion,
                 creditPage::monthFieldTermError,
-                dataHelper::payDenialCountAssertion,
-                dataHelper::orderDenialCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -150,8 +150,8 @@ public class   CreditTest {
         Assertions.assertAll(
                 creditPage::denialAssertion,
                 creditPage::monthFieldFormatError,
-                dataHelper::payDenialCountAssertion,
-                dataHelper::orderDenialCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -162,8 +162,8 @@ public class   CreditTest {
         Assertions.assertAll(
                 creditPage::denialAssertion,
                 creditPage::monthFieldFormatError,
-                dataHelper::payDenialCountAssertion,
-                dataHelper::orderDenialCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -173,9 +173,9 @@ public class   CreditTest {
         creditPage.continueClick();
         Assertions.assertAll(
                 creditPage::acceptAssertion,
-                dataHelper::payApprovedStatusAssertion,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payApprovedStatusAssertion,
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -185,9 +185,9 @@ public class   CreditTest {
         creditPage.continueClick();
         Assertions.assertAll(
                 creditPage::acceptAssertion,
-                dataHelper::payApprovedStatusAssertion,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payApprovedStatusAssertion,
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -198,8 +198,8 @@ public class   CreditTest {
         Assertions.assertAll(
                 creditPage::denialAssertion,
                 creditPage::yearFieldMinusTermError,
-                dataHelper::payDenialCountAssertion,
-                dataHelper::orderDenialCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -210,8 +210,8 @@ public class   CreditTest {
         Assertions.assertAll(
                 creditPage::denialAssertion,
                 creditPage::yearFieldPlusTermError,
-                dataHelper::payDenialCountAssertion,
-                dataHelper::orderDenialCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -222,8 +222,8 @@ public class   CreditTest {
         Assertions.assertAll(
                 creditPage::denialAssertion,
                 creditPage::yearFieldFormatError,
-                dataHelper::payDenialCountAssertion,
-                dataHelper::orderDenialCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -234,8 +234,8 @@ public class   CreditTest {
         Assertions.assertAll(
                 creditPage::denialAssertion,
                 creditPage::yearFieldFormatError,
-                dataHelper::payDenialCountAssertion,
-                dataHelper::orderDenialCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -245,9 +245,9 @@ public class   CreditTest {
         creditPage.continueClick();
         Assertions.assertAll(
                 creditPage::acceptAssertion,
-                dataHelper::payApprovedStatusAssertion,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payApprovedStatusAssertion,
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -257,9 +257,9 @@ public class   CreditTest {
         creditPage.continueClick();
         Assertions.assertAll(
                 creditPage::acceptAssertion,
-                dataHelper::payApprovedStatusAssertion,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payApprovedStatusAssertion,
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -269,9 +269,9 @@ public class   CreditTest {
         creditPage.continueClick();
         Assertions.assertAll(
                 creditPage::acceptAssertion,
-                dataHelper::payApprovedStatusAssertion,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payApprovedStatusAssertion,
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -281,9 +281,9 @@ public class   CreditTest {
         creditPage.continueClick();
         Assertions.assertAll(
                 creditPage::acceptAssertion,
-                dataHelper::payApprovedStatusAssertion,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payApprovedStatusAssertion,
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -294,8 +294,8 @@ public class   CreditTest {
         Assertions.assertAll(
                 creditPage::acceptAssertion,
                 creditPage::cardHolderFieldFormatError,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -306,8 +306,8 @@ public class   CreditTest {
         Assertions.assertAll(
                 creditPage::acceptAssertion,
                 creditPage::cardHolderFieldFormatError,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -318,8 +318,8 @@ public class   CreditTest {
         Assertions.assertAll(
                 creditPage::acceptAssertion,
                 creditPage::cardHolderFieldFormatError,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -330,8 +330,8 @@ public class   CreditTest {
         Assertions.assertAll(
                 creditPage::acceptAssertion,
                 creditPage::cardHolderFieldFormatError,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -342,8 +342,8 @@ public class   CreditTest {
         Assertions.assertAll(
                 creditPage::acceptAssertion,
                 creditPage::cardHolderFieldEmptyError,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -354,8 +354,8 @@ public class   CreditTest {
         Assertions.assertAll(
                 creditPage::acceptAssertion,
                 creditPage::cardHolderFieldEmptyError,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -365,9 +365,9 @@ public class   CreditTest {
         creditPage.continueClick();
         Assertions.assertAll(
                 creditPage::acceptAssertion,
-                dataHelper::payApprovedStatusAssertion,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payApprovedStatusAssertion,
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -378,8 +378,8 @@ public class   CreditTest {
         Assertions.assertAll(
                 creditPage::denialAssertion,
                 creditPage::cvcFieldFormatError,
-                dataHelper::payDenialCountAssertion,
-                dataHelper::orderDenialCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -390,8 +390,8 @@ public class   CreditTest {
         Assertions.assertAll(
                 creditPage::denialAssertion,
                 creditPage::cvcFieldFormatError,
-                dataHelper::payDenialCountAssertion,
-                dataHelper::orderDenialCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -402,8 +402,8 @@ public class   CreditTest {
         Assertions.assertAll(
                 creditPage::denialAssertion,
                 creditPage::cvcFieldFormatError,
-                dataHelper::payDenialCountAssertion,
-                dataHelper::orderDenialCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 }

@@ -4,7 +4,7 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 import ru.netology.data.DataGenerator;
-import ru.netology.data.DataHelper;
+import ru.netology.data.TestAssertions;
 import ru.netology.data.DbInteraction;
 import ru.netology.page.OrderPage;
 
@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class OrderTest {
 
     public OrderPage orderPage = new OrderPage();
-    public DataHelper dataHelper = new DataHelper();
+    public TestAssertions testAssertions = new TestAssertions();
 
     @BeforeEach
     void setup() {
@@ -41,9 +41,9 @@ public class OrderTest {
         orderPage.continueClick();
         Assertions.assertAll(
                 orderPage::acceptAssertion,
-                dataHelper::payApprovedStatusAssertion,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payApprovedStatusAssertion,
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -53,9 +53,9 @@ public class OrderTest {
         orderPage.continueClick();
         Assertions.assertAll(
                 orderPage::denialAssertion,
-                dataHelper::payDeclinedStatusAssertion,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payDeclinedStatusAssertion,
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -65,8 +65,8 @@ public class OrderTest {
         orderPage.continueClick();
         Assertions.assertAll(
                 orderPage::denialAssertion,
-                dataHelper::payDenialCountAssertion,
-                dataHelper::orderDenialCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -77,8 +77,8 @@ public class OrderTest {
         Assertions.assertAll(
                 orderPage::denialAssertion,
                 orderPage::numberFieldFormatError,
-                dataHelper::payDenialCountAssertion,
-                dataHelper::orderDenialCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -89,8 +89,8 @@ public class OrderTest {
         Assertions.assertAll(
                 orderPage::denialAssertion,
                 orderPage::numberFieldFormatError,
-                dataHelper::payDenialCountAssertion,
-                dataHelper::orderDenialCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -100,9 +100,9 @@ public class OrderTest {
         orderPage.continueClick();
         Assertions.assertAll(
                 orderPage::acceptAssertion,
-                dataHelper::payApprovedStatusAssertion,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payApprovedStatusAssertion,
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -112,9 +112,9 @@ public class OrderTest {
         orderPage.continueClick();
         Assertions.assertAll(
                 orderPage::acceptAssertion,
-                dataHelper::payApprovedStatusAssertion,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payApprovedStatusAssertion,
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -125,8 +125,8 @@ public class OrderTest {
         Assertions.assertAll(
                 orderPage::denialAssertion,
                 orderPage::monthFieldTermError,
-                dataHelper::payDenialCountAssertion,
-                dataHelper::orderDenialCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -137,8 +137,8 @@ public class OrderTest {
         Assertions.assertAll(
                 orderPage::denialAssertion,
                 orderPage::monthFieldTermError,
-                dataHelper::payDenialCountAssertion,
-                dataHelper::orderDenialCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -149,8 +149,8 @@ public class OrderTest {
         Assertions.assertAll(
                 orderPage::denialAssertion,
                 orderPage::monthFieldFormatError,
-                dataHelper::payDenialCountAssertion,
-                dataHelper::orderDenialCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -161,8 +161,8 @@ public class OrderTest {
         Assertions.assertAll(
                 orderPage::denialAssertion,
                 orderPage::monthFieldFormatError,
-                dataHelper::payDenialCountAssertion,
-                dataHelper::orderDenialCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -172,9 +172,9 @@ public class OrderTest {
         orderPage.continueClick();
         Assertions.assertAll(
                 orderPage::acceptAssertion,
-                dataHelper::payApprovedStatusAssertion,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payApprovedStatusAssertion,
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -184,9 +184,9 @@ public class OrderTest {
         orderPage.continueClick();
         Assertions.assertAll(
                 orderPage::acceptAssertion,
-                dataHelper::payApprovedStatusAssertion,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payApprovedStatusAssertion,
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -197,8 +197,8 @@ public class OrderTest {
         Assertions.assertAll(
                 orderPage::denialAssertion,
                 orderPage::yearFieldMinusTermError,
-                dataHelper::payDenialCountAssertion,
-                dataHelper::orderDenialCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -209,8 +209,8 @@ public class OrderTest {
         Assertions.assertAll(
                 orderPage::denialAssertion,
                 orderPage::yearFieldPlusTermError,
-                dataHelper::payDenialCountAssertion,
-                dataHelper::orderDenialCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -221,8 +221,8 @@ public class OrderTest {
         Assertions.assertAll(
                 orderPage::denialAssertion,
                 orderPage::yearFieldFormatError,
-                dataHelper::payDenialCountAssertion,
-                dataHelper::orderDenialCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -233,8 +233,8 @@ public class OrderTest {
         Assertions.assertAll(
                 orderPage::denialAssertion,
                 orderPage::yearFieldFormatError,
-                dataHelper::payDenialCountAssertion,
-                dataHelper::orderDenialCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -244,9 +244,9 @@ public class OrderTest {
         orderPage.continueClick();
         Assertions.assertAll(
                 orderPage::acceptAssertion,
-                dataHelper::payApprovedStatusAssertion,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payApprovedStatusAssertion,
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -256,9 +256,9 @@ public class OrderTest {
         orderPage.continueClick();
         Assertions.assertAll(
                 orderPage::acceptAssertion,
-                dataHelper::payApprovedStatusAssertion,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payApprovedStatusAssertion,
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -268,9 +268,9 @@ public class OrderTest {
         orderPage.continueClick();
         Assertions.assertAll(
                 orderPage::acceptAssertion,
-                dataHelper::payApprovedStatusAssertion,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payApprovedStatusAssertion,
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -280,9 +280,9 @@ public class OrderTest {
         orderPage.continueClick();
         Assertions.assertAll(
                 orderPage::acceptAssertion,
-                dataHelper::payApprovedStatusAssertion,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payApprovedStatusAssertion,
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -293,8 +293,8 @@ public class OrderTest {
         Assertions.assertAll(
                 orderPage::acceptAssertion,
                 orderPage::cardHolderFieldFormatError,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -305,8 +305,8 @@ public class OrderTest {
         Assertions.assertAll(
                 orderPage::acceptAssertion,
                 orderPage::cardHolderFieldFormatError,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -317,8 +317,8 @@ public class OrderTest {
         Assertions.assertAll(
                 orderPage::acceptAssertion,
                 orderPage::cardHolderFieldFormatError,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -329,8 +329,8 @@ public class OrderTest {
         Assertions.assertAll(
                 orderPage::acceptAssertion,
                 orderPage::cardHolderFieldFormatError,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -341,8 +341,8 @@ public class OrderTest {
         Assertions.assertAll(
                 orderPage::acceptAssertion,
                 orderPage::cardHolderFieldEmptyError,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -353,8 +353,8 @@ public class OrderTest {
         Assertions.assertAll(
                 orderPage::acceptAssertion,
                 orderPage::cardHolderFieldEmptyError,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -364,9 +364,9 @@ public class OrderTest {
         orderPage.continueClick();
         Assertions.assertAll(
                 orderPage::acceptAssertion,
-                dataHelper::payApprovedStatusAssertion,
-                dataHelper::payAcceptCountAssertion,
-                dataHelper::orderAcceptCountAssertion
+                testAssertions::payApprovedStatusAssertion,
+                testAssertions::payAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -377,8 +377,8 @@ public class OrderTest {
         Assertions.assertAll(
                 orderPage::denialAssertion,
                 orderPage::cvcFieldFormatError,
-                dataHelper::payDenialCountAssertion,
-                dataHelper::orderDenialCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -389,8 +389,8 @@ public class OrderTest {
         Assertions.assertAll(
                 orderPage::denialAssertion,
                 orderPage::cvcFieldFormatError,
-                dataHelper::payDenialCountAssertion,
-                dataHelper::orderDenialCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -401,8 +401,8 @@ public class OrderTest {
         Assertions.assertAll(
                 orderPage::denialAssertion,
                 orderPage::cvcFieldFormatError,
-                dataHelper::payDenialCountAssertion,
-                dataHelper::orderDenialCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 }

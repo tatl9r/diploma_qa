@@ -12,9 +12,9 @@ public class MainPage {
         return new OrderPage();
     }
 
-    public OrderPage clickCreditButton() {
+    public CreditPage clickCreditButton() {
         creditButton.click();
-        return new OrderPage();
+        return new CreditPage();
     }
 
 }

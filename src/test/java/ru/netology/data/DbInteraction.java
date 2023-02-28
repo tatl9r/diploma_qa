@@ -13,11 +13,8 @@ public class DbInteraction {
         var sql = "SELECT status FROM credit_request_entity";
         var runner = new QueryRunner();
         String creditStatus;
-
-        var conn = DriverManager.getConnection(System.getProperty("dbUrl"), "dbUser", "dbPass");
-
-            creditStatus = runner.query(conn, sql, new ScalarHandler<>());
-
+        var conn = DriverManager.getConnection(System.getProperty("dbUrl"), System.getProperty("dbUser"), System.getProperty("dbPass"));
+        creditStatus = runner.query(conn, sql, new ScalarHandler<>());
         return creditStatus;
     }
 
@@ -26,11 +23,8 @@ public class DbInteraction {
         var sql = "SELECT status FROM payment_entity;";
         var runner = new QueryRunner();
         String paymentStatus;
-
-        var conn = DriverManager.getConnection(System.getProperty("dbUrl"), "dbUser", "dbPass");
-
-            paymentStatus = runner.query(conn, sql, new ScalarHandler<>());
-
+        var conn = DriverManager.getConnection(System.getProperty("dbUrl"), System.getProperty("dbUser"), System.getProperty("dbPass"));
+        paymentStatus = runner.query(conn, sql, new ScalarHandler<>());
         return paymentStatus;
     }
 
@@ -39,11 +33,8 @@ public class DbInteraction {
         var sql = "SELECT COUNT(id) as count FROM payment_entity;";
         var runner = new QueryRunner();
         long paymentCount;
-
-        var conn = DriverManager.getConnection(System.getProperty("dbUrl"), "dbUser", "dbPass");
-
-            paymentCount = runner.query(conn, sql, new ScalarHandler<>());
-
+        var conn = DriverManager.getConnection(System.getProperty("dbUrl"), System.getProperty("dbUser"), System.getProperty("dbPass"));
+        paymentCount = runner.query(conn, sql, new ScalarHandler<>());
         return paymentCount;
     }
 
@@ -52,11 +43,8 @@ public class DbInteraction {
         var sql = "SELECT COUNT(id) as count FROM credit_request_entity;";
         var runner = new QueryRunner();
         long creditCount;
-
-        var conn = DriverManager.getConnection(System.getProperty("dbUrl"), "dbUser", "dbPass");
-
-            creditCount = runner.query(conn, sql, new ScalarHandler<>());
-
+        var conn = DriverManager.getConnection(System.getProperty("dbUrl"), System.getProperty("dbUser"), System.getProperty("dbPass"));
+        creditCount = runner.query(conn, sql, new ScalarHandler<>());
         return creditCount;
     }
 
@@ -65,11 +53,8 @@ public class DbInteraction {
         var sql = "SELECT COUNT(id) as count FROM order_entity;";
         var runner = new QueryRunner();
         long orderCount;
-
-        var conn = DriverManager.getConnection(System.getProperty("dbUrl"), "dbUser", "dbPass");
-
-            orderCount = runner.query(conn, sql, new ScalarHandler<>());
-
+        var conn = DriverManager.getConnection(System.getProperty("dbUrl"), System.getProperty("dbUser"), System.getProperty("dbPass"));
+        orderCount = runner.query(conn, sql, new ScalarHandler<>());
         return orderCount;
     }
 
@@ -80,12 +65,10 @@ public class DbInteraction {
         var deletePayment = "DELETE FROM payment_entity;";
         var deleteCredit = "DELETE FROM credit_request_entity;";
         var runner = new QueryRunner();
-
-        var conn = DriverManager.getConnection(System.getProperty("dbUrl"), "dbUser", "dbPass");
-
-            runner.update(conn, deleteOrder);
-            runner.update(conn, deletePayment);
-            runner.update(conn, deleteCredit);
+        var conn = DriverManager.getConnection(System.getProperty("dbUrl"), System.getProperty("dbUser"), System.getProperty("dbPass"));
+        runner.update(conn, deleteOrder);
+        runner.update(conn, deletePayment);
+        runner.update(conn, deleteCredit);
         }
 
 }
