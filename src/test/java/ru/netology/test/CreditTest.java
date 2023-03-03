@@ -44,7 +44,7 @@ public class   CreditTest {
                 creditPage::acceptAssertion,
                 testAssertions::payApprovedStatusAssertion,
                 testAssertions::payAcceptCountAssertion,
-                testAssertions::orderAcceptCountAssertion
+                testAssertions::creditAcceptCountAssertion
         );
     }
 
@@ -56,7 +56,7 @@ public class   CreditTest {
                 creditPage::denialAssertion,
                 testAssertions::payDeclinedStatusAssertion,
                 testAssertions::payAcceptCountAssertion,
-                testAssertions::orderAcceptCountAssertion
+                testAssertions::creditAcceptCountAssertion
         );
     }
 
@@ -67,7 +67,7 @@ public class   CreditTest {
         Assertions.assertAll(
                 creditPage::denialAssertion,
                 testAssertions::payDenialCountAssertion,
-                testAssertions::orderDenialCountAssertion
+                testAssertions::creditDenialCountAssertion
         );
     }
 
@@ -79,7 +79,7 @@ public class   CreditTest {
                 creditPage::denialAssertion,
                 creditPage::numberFieldFormatError,
                 testAssertions::payDenialCountAssertion,
-                testAssertions::orderDenialCountAssertion
+                testAssertions::creditDenialCountAssertion
         );
     }
 
@@ -91,7 +91,7 @@ public class   CreditTest {
                 creditPage::denialAssertion,
                 creditPage::numberFieldFormatError,
                 testAssertions::payDenialCountAssertion,
-                testAssertions::orderDenialCountAssertion
+                testAssertions::creditDenialCountAssertion
         );
     }
 
@@ -103,7 +103,7 @@ public class   CreditTest {
                 creditPage::acceptAssertion,
                 testAssertions::payApprovedStatusAssertion,
                 testAssertions::payAcceptCountAssertion,
-                testAssertions::orderAcceptCountAssertion
+                testAssertions::creditAcceptCountAssertion
         );
     }
 
@@ -115,7 +115,7 @@ public class   CreditTest {
                 creditPage::acceptAssertion,
                 testAssertions::payApprovedStatusAssertion,
                 testAssertions::payAcceptCountAssertion,
-                testAssertions::orderAcceptCountAssertion
+                testAssertions::creditAcceptCountAssertion
         );
     }
 
@@ -127,7 +127,7 @@ public class   CreditTest {
                 creditPage::denialAssertion,
                 creditPage::monthFieldTermError,
                 testAssertions::payDenialCountAssertion,
-                testAssertions::orderDenialCountAssertion
+                testAssertions::creditDenialCountAssertion
         );
     }
 
@@ -139,7 +139,7 @@ public class   CreditTest {
                 creditPage::denialAssertion,
                 creditPage::monthFieldTermError,
                 testAssertions::payDenialCountAssertion,
-                testAssertions::orderDenialCountAssertion
+                testAssertions::creditDenialCountAssertion
         );
     }
 
@@ -151,7 +151,7 @@ public class   CreditTest {
                 creditPage::denialAssertion,
                 creditPage::monthFieldFormatError,
                 testAssertions::payDenialCountAssertion,
-                testAssertions::orderDenialCountAssertion
+                testAssertions::creditDenialCountAssertion
         );
     }
 
@@ -163,7 +163,7 @@ public class   CreditTest {
                 creditPage::denialAssertion,
                 creditPage::monthFieldFormatError,
                 testAssertions::payDenialCountAssertion,
-                testAssertions::orderDenialCountAssertion
+                testAssertions::creditDenialCountAssertion
         );
     }
 
@@ -175,7 +175,7 @@ public class   CreditTest {
                 creditPage::acceptAssertion,
                 testAssertions::payApprovedStatusAssertion,
                 testAssertions::payAcceptCountAssertion,
-                testAssertions::orderAcceptCountAssertion
+                testAssertions::creditAcceptCountAssertion
         );
     }
 
@@ -187,7 +187,7 @@ public class   CreditTest {
                 creditPage::acceptAssertion,
                 testAssertions::payApprovedStatusAssertion,
                 testAssertions::payAcceptCountAssertion,
-                testAssertions::orderAcceptCountAssertion
+                testAssertions::creditAcceptCountAssertion
         );
     }
 
@@ -199,7 +199,7 @@ public class   CreditTest {
                 creditPage::denialAssertion,
                 creditPage::yearFieldMinusTermError,
                 testAssertions::payDenialCountAssertion,
-                testAssertions::orderDenialCountAssertion
+                testAssertions::creditDenialCountAssertion
         );
     }
 
@@ -211,7 +211,7 @@ public class   CreditTest {
                 creditPage::denialAssertion,
                 creditPage::yearFieldPlusTermError,
                 testAssertions::payDenialCountAssertion,
-                testAssertions::orderDenialCountAssertion
+                testAssertions::creditDenialCountAssertion
         );
     }
 
@@ -223,7 +223,7 @@ public class   CreditTest {
                 creditPage::denialAssertion,
                 creditPage::yearFieldFormatError,
                 testAssertions::payDenialCountAssertion,
-                testAssertions::orderDenialCountAssertion
+                testAssertions::creditDenialCountAssertion
         );
     }
 
@@ -235,7 +235,7 @@ public class   CreditTest {
                 creditPage::denialAssertion,
                 creditPage::yearFieldFormatError,
                 testAssertions::payDenialCountAssertion,
-                testAssertions::orderDenialCountAssertion
+                testAssertions::creditDenialCountAssertion
         );
     }
 
@@ -247,7 +247,7 @@ public class   CreditTest {
                 creditPage::acceptAssertion,
                 testAssertions::payApprovedStatusAssertion,
                 testAssertions::payAcceptCountAssertion,
-                testAssertions::orderAcceptCountAssertion
+                testAssertions::creditAcceptCountAssertion
         );
     }
 
@@ -259,7 +259,7 @@ public class   CreditTest {
                 creditPage::acceptAssertion,
                 testAssertions::payApprovedStatusAssertion,
                 testAssertions::payAcceptCountAssertion,
-                testAssertions::orderAcceptCountAssertion
+                testAssertions::creditAcceptCountAssertion
         );
     }
 
@@ -271,7 +271,7 @@ public class   CreditTest {
                 creditPage::acceptAssertion,
                 testAssertions::payApprovedStatusAssertion,
                 testAssertions::payAcceptCountAssertion,
-                testAssertions::orderAcceptCountAssertion
+                testAssertions::creditAcceptCountAssertion
         );
     }
 
@@ -283,7 +283,7 @@ public class   CreditTest {
                 creditPage::acceptAssertion,
                 testAssertions::payApprovedStatusAssertion,
                 testAssertions::payAcceptCountAssertion,
-                testAssertions::orderAcceptCountAssertion
+                testAssertions::creditAcceptCountAssertion
         );
     }
 
@@ -295,7 +295,7 @@ public class   CreditTest {
                 creditPage::acceptAssertion,
                 creditPage::cardHolderFieldFormatError,
                 testAssertions::payAcceptCountAssertion,
-                testAssertions::orderAcceptCountAssertion
+                testAssertions::creditAcceptCountAssertion
         );
     }
 
@@ -307,7 +307,7 @@ public class   CreditTest {
                 creditPage::acceptAssertion,
                 creditPage::cardHolderFieldFormatError,
                 testAssertions::payAcceptCountAssertion,
-                testAssertions::orderAcceptCountAssertion
+                testAssertions::creditAcceptCountAssertion
         );
     }
 
@@ -319,7 +319,7 @@ public class   CreditTest {
                 creditPage::acceptAssertion,
                 creditPage::cardHolderFieldFormatError,
                 testAssertions::payAcceptCountAssertion,
-                testAssertions::orderAcceptCountAssertion
+                testAssertions::creditAcceptCountAssertion
         );
     }
 
@@ -331,7 +331,7 @@ public class   CreditTest {
                 creditPage::acceptAssertion,
                 creditPage::cardHolderFieldFormatError,
                 testAssertions::payAcceptCountAssertion,
-                testAssertions::orderAcceptCountAssertion
+                testAssertions::creditAcceptCountAssertion
         );
     }
 
@@ -343,7 +343,7 @@ public class   CreditTest {
                 creditPage::acceptAssertion,
                 creditPage::cardHolderFieldEmptyError,
                 testAssertions::payAcceptCountAssertion,
-                testAssertions::orderAcceptCountAssertion
+                testAssertions::creditAcceptCountAssertion
         );
     }
 
@@ -355,7 +355,7 @@ public class   CreditTest {
                 creditPage::acceptAssertion,
                 creditPage::cardHolderFieldEmptyError,
                 testAssertions::payAcceptCountAssertion,
-                testAssertions::orderAcceptCountAssertion
+                testAssertions::creditAcceptCountAssertion
         );
     }
 
@@ -367,7 +367,7 @@ public class   CreditTest {
                 creditPage::acceptAssertion,
                 testAssertions::payApprovedStatusAssertion,
                 testAssertions::payAcceptCountAssertion,
-                testAssertions::orderAcceptCountAssertion
+                testAssertions::creditAcceptCountAssertion
         );
     }
 
@@ -379,7 +379,7 @@ public class   CreditTest {
                 creditPage::denialAssertion,
                 creditPage::cvcFieldFormatError,
                 testAssertions::payDenialCountAssertion,
-                testAssertions::orderDenialCountAssertion
+                testAssertions::creditDenialCountAssertion
         );
     }
 
@@ -391,7 +391,7 @@ public class   CreditTest {
                 creditPage::denialAssertion,
                 creditPage::cvcFieldFormatError,
                 testAssertions::payDenialCountAssertion,
-                testAssertions::orderDenialCountAssertion
+                testAssertions::creditDenialCountAssertion
         );
     }
 
@@ -403,7 +403,7 @@ public class   CreditTest {
                 creditPage::denialAssertion,
                 creditPage::cvcFieldFormatError,
                 testAssertions::payDenialCountAssertion,
-                testAssertions::orderDenialCountAssertion
+                testAssertions::creditDenialCountAssertion
         );
     }
 }
