@@ -5,62 +5,62 @@ import org.junit.jupiter.api.Assertions;
 public class TestAssertions {
     public void payApprovedStatusAssertion() {
 
-        String statusExpected = "APPROVED";
-        String statusActual = DbInteraction.getDataBasePaymentStatus();
+        var statusExpected = "APPROVED";
+        var statusActual = DbInteraction.getDataBasePaymentStatus();
         Assertions.assertEquals(statusExpected, statusActual);
     }
 
     public void payDeclinedStatusAssertion() {
-        String statusExpected = "DECLINED";
-        String statusActual = DbInteraction.getDataBasePaymentStatus();
+        var statusExpected = "DECLINED";
+        var statusActual = DbInteraction.getDataBasePaymentStatus();
         Assertions.assertEquals(statusExpected, statusActual);
     }
 
     public void payAcceptCountAssertion() {
-        long countExpected = 1;
-        long countActual = DbInteraction.getDataBasePaymentCount();
+        var countExpected = 1;
+        var countActual = DbInteraction.getDataBasePaymentCount();
         Assertions.assertEquals(countExpected, countActual);
     }
 
     public void payDenialCountAssertion() {
-        long countExpected = 0;
-        long countActual = DbInteraction.getDataBasePaymentCount();
+        var countExpected = 0;
+        var countActual = DbInteraction.getDataBasePaymentCount();
         Assertions.assertEquals(countExpected, countActual);
     }
 
     public void orderAcceptCountAssertion() {
-        long countExpected = 1;
-        long countActual = DbInteraction.getDataBaseOrderCount();
+        var countExpected = 1;
+        var countActual = DbInteraction.getDataBaseOrderCount();
         Assertions.assertEquals(countExpected, countActual);
     }
 
     public void orderDenialCountAssertion() {
-        long countExpected = 0;
-        long countActual = DbInteraction.getDataBaseOrderCount();
+        var countExpected = 0;
+        var countActual = DbInteraction.getDataBaseOrderCount();
         Assertions.assertEquals(countExpected, countActual);
     }
 
     public void creditApprovedStatusAssertion() {
-        String statusExpected = "APPROVED";
-        String statusActual = DbInteraction.getDataBasePaymentStatus();
+        var statusExpected = "APPROVED";
+        var statusActual = DbInteraction.getDataBasePaymentStatus();
         Assertions.assertEquals(statusExpected, statusActual);
     }
 
     public void creditDeclinedStatusAssertion() {
-        String statusExpected = "DECLINED";
-        String statusActual = DbInteraction.getDataBaseCreditStatus();
+        var statusExpected = "DECLINED";
+        var statusActual = DbInteraction.getDataBaseCreditStatus();
         Assertions.assertEquals(statusExpected, statusActual);
     }
 
     public void creditAcceptCountAssertion() {
-        long countExpected = 1;
-        long countActual = DbInteraction.getDataBaseCreditCount();
+        var countExpected = 1;
+        var countActual = DbInteraction.getDataBaseCreditCount();
         Assertions.assertEquals(countExpected, countActual);
     }
 
     public void creditDenialCountAssertion() {
-        long countExpected = 0;
-        long countActual = DbInteraction.getDataBaseCreditCount();
+        var countExpected = 0;
+        var countActual = DbInteraction.getDataBaseCreditCount();
         Assertions.assertEquals(countExpected, countActual);
     }
 
