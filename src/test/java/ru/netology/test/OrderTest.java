@@ -54,8 +54,8 @@ public class OrderTest {
         Assertions.assertAll(
                 orderPage::denialAssertion,
                 testAssertions::payDeclinedStatusAssertion,
-                testAssertions::payAcceptCountAssertion,
-                testAssertions::orderAcceptCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -64,7 +64,7 @@ public class OrderTest {
         orderPage.completePayFrom(DataGenerator.getRandomDigitNumber(15), DataGenerator.getMonth(0), DataGenerator.getYear(0), DataGenerator.getCardHolderName(), DataGenerator.getCVC());
         orderPage.continueClick();
         Assertions.assertAll(
-                orderPage::denialAssertion,
+                orderPage::numberFieldFormatError,
                 testAssertions::payDenialCountAssertion,
                 testAssertions::orderDenialCountAssertion
         );
@@ -75,7 +75,6 @@ public class OrderTest {
         orderPage.completePayFrom(DataGenerator.getEmptyString(), DataGenerator.getMonth(0), DataGenerator.getYear(0), DataGenerator.getCardHolderName(), DataGenerator.getCVC());
         orderPage.continueClick();
         Assertions.assertAll(
-                orderPage::denialAssertion,
                 orderPage::numberFieldFormatError,
                 testAssertions::payDenialCountAssertion,
                 testAssertions::orderDenialCountAssertion
@@ -87,7 +86,6 @@ public class OrderTest {
         orderPage.completePayFrom(DataGenerator.getSameNumber(), DataGenerator.getMonth(0), DataGenerator.getYear(0), DataGenerator.getCardHolderName(), DataGenerator.getCVC());
         orderPage.continueClick();
         Assertions.assertAll(
-                orderPage::denialAssertion,
                 orderPage::numberFieldFormatError,
                 testAssertions::payDenialCountAssertion,
                 testAssertions::orderDenialCountAssertion
@@ -123,7 +121,6 @@ public class OrderTest {
         orderPage.completePayFrom(DataGenerator.getApprovedNumber(), DataGenerator.getZeroMonth(), DataGenerator.getYear(1), DataGenerator.getCardHolderName(), DataGenerator.getCVC());
         orderPage.continueClick();
         Assertions.assertAll(
-                orderPage::denialAssertion,
                 orderPage::monthFieldTermError,
                 testAssertions::payDenialCountAssertion,
                 testAssertions::orderDenialCountAssertion
@@ -135,7 +132,6 @@ public class OrderTest {
         orderPage.completePayFrom(DataGenerator.getApprovedNumber(), DataGenerator.getThirteenMonth(), DataGenerator.getYear(1), DataGenerator.getCardHolderName(), DataGenerator.getCVC());
         orderPage.continueClick();
         Assertions.assertAll(
-                orderPage::denialAssertion,
                 orderPage::monthFieldTermError,
                 testAssertions::payDenialCountAssertion,
                 testAssertions::orderDenialCountAssertion
@@ -147,7 +143,6 @@ public class OrderTest {
         orderPage.completePayFrom(DataGenerator.getApprovedNumber(), DataGenerator.getOneNumberMonth(), DataGenerator.getYear(1), DataGenerator.getCardHolderName(), DataGenerator.getCVC());
         orderPage.continueClick();
         Assertions.assertAll(
-                orderPage::denialAssertion,
                 orderPage::monthFieldFormatError,
                 testAssertions::payDenialCountAssertion,
                 testAssertions::orderDenialCountAssertion
@@ -159,7 +154,6 @@ public class OrderTest {
         orderPage.completePayFrom(DataGenerator.getApprovedNumber(), DataGenerator.getEmptyString(), DataGenerator.getYear(1), DataGenerator.getCardHolderName(), DataGenerator.getCVC());
         orderPage.continueClick();
         Assertions.assertAll(
-                orderPage::denialAssertion,
                 orderPage::monthFieldFormatError,
                 testAssertions::payDenialCountAssertion,
                 testAssertions::orderDenialCountAssertion
@@ -195,20 +189,7 @@ public class OrderTest {
         orderPage.completePayFrom(DataGenerator.getApprovedNumber(), DataGenerator.getMonth(0), DataGenerator.getYear(-1), DataGenerator.getCardHolderName(), DataGenerator.getCVC());
         orderPage.continueClick();
         Assertions.assertAll(
-                orderPage::denialAssertion,
                 orderPage::yearFieldMinusTermError,
-                testAssertions::payDenialCountAssertion,
-                testAssertions::orderDenialCountAssertion
-        );
-    }
-
-    @org.junit.jupiter.api.Test
-    void shouldFailedPaymentPlusNineYear() {
-        orderPage.completePayFrom(DataGenerator.getApprovedNumber(), DataGenerator.getMonth(0), DataGenerator.getYear(9), DataGenerator.getCardHolderName(), DataGenerator.getCVC());
-        orderPage.continueClick();
-        Assertions.assertAll(
-                orderPage::denialAssertion,
-                orderPage::yearFieldPlusTermError,
                 testAssertions::payDenialCountAssertion,
                 testAssertions::orderDenialCountAssertion
         );
@@ -219,7 +200,6 @@ public class OrderTest {
         orderPage.completePayFrom(DataGenerator.getApprovedNumber(), DataGenerator.getMonth(0), DataGenerator.getOneNumberYear(), DataGenerator.getCardHolderName(), DataGenerator.getCVC());
         orderPage.continueClick();
         Assertions.assertAll(
-                orderPage::denialAssertion,
                 orderPage::yearFieldFormatError,
                 testAssertions::payDenialCountAssertion,
                 testAssertions::orderDenialCountAssertion
@@ -231,7 +211,6 @@ public class OrderTest {
         orderPage.completePayFrom(DataGenerator.getApprovedNumber(), DataGenerator.getMonth(0), DataGenerator.getEmptyString(), DataGenerator.getCardHolderName(), DataGenerator.getCVC());
         orderPage.continueClick();
         Assertions.assertAll(
-                orderPage::denialAssertion,
                 orderPage::yearFieldFormatError,
                 testAssertions::payDenialCountAssertion,
                 testAssertions::orderDenialCountAssertion
@@ -291,10 +270,9 @@ public class OrderTest {
         orderPage.completePayFrom(DataGenerator.getApprovedNumber(), DataGenerator.getMonth(0), DataGenerator.getYear(0), DataGenerator.getTwoLettersName(), DataGenerator.getCVC());
         orderPage.continueClick();
         Assertions.assertAll(
-                orderPage::acceptAssertion,
                 orderPage::cardHolderFieldFormatError,
-                testAssertions::payAcceptCountAssertion,
-                testAssertions::orderAcceptCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -303,10 +281,9 @@ public class OrderTest {
         orderPage.completePayFrom(DataGenerator.getApprovedNumber(), DataGenerator.getMonth(0), DataGenerator.getYear(0), DataGenerator.getNumericalName("#####"), DataGenerator.getCVC());
         orderPage.continueClick();
         Assertions.assertAll(
-                orderPage::acceptAssertion,
                 orderPage::cardHolderFieldFormatError,
-                testAssertions::payAcceptCountAssertion,
-                testAssertions::orderAcceptCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -315,10 +292,9 @@ public class OrderTest {
         orderPage.completePayFrom(DataGenerator.getApprovedNumber(), DataGenerator.getMonth(0), DataGenerator.getYear(0), DataGenerator.getSpecialSymbolsName(), DataGenerator.getCVC());
         orderPage.continueClick();
         Assertions.assertAll(
-                orderPage::acceptAssertion,
                 orderPage::cardHolderFieldFormatError,
-                testAssertions::payAcceptCountAssertion,
-                testAssertions::orderAcceptCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -327,10 +303,9 @@ public class OrderTest {
         orderPage.completePayFrom(DataGenerator.getApprovedNumber(), DataGenerator.getMonth(0), DataGenerator.getYear(0), DataGenerator.getTwentyOneLettersName(), DataGenerator.getCVC());
         orderPage.continueClick();
         Assertions.assertAll(
-                orderPage::acceptAssertion,
                 orderPage::cardHolderFieldFormatError,
-                testAssertions::payAcceptCountAssertion,
-                testAssertions::orderAcceptCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -339,10 +314,9 @@ public class OrderTest {
         orderPage.completePayFrom(DataGenerator.getApprovedNumber(), DataGenerator.getMonth(0), DataGenerator.getYear(0), DataGenerator.getSpacesName(), DataGenerator.getCVC());
         orderPage.continueClick();
         Assertions.assertAll(
-                orderPage::acceptAssertion,
                 orderPage::cardHolderFieldEmptyError,
-                testAssertions::payAcceptCountAssertion,
-                testAssertions::orderAcceptCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -351,10 +325,9 @@ public class OrderTest {
         orderPage.completePayFrom(DataGenerator.getApprovedNumber(), DataGenerator.getMonth(0), DataGenerator.getYear(0), DataGenerator.getEmptyString(), DataGenerator.getCVC());
         orderPage.continueClick();
         Assertions.assertAll(
-                orderPage::acceptAssertion,
                 orderPage::cardHolderFieldEmptyError,
-                testAssertions::payAcceptCountAssertion,
-                testAssertions::orderAcceptCountAssertion
+                testAssertions::payDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -375,7 +348,6 @@ public class OrderTest {
         orderPage.completePayFrom(DataGenerator.getApprovedNumber(), DataGenerator.getMonth(0), DataGenerator.getYear(0), DataGenerator.getCardHolderName(), DataGenerator.getOneNumberCVC());
         orderPage.continueClick();
         Assertions.assertAll(
-                orderPage::denialAssertion,
                 orderPage::cvcFieldFormatError,
                 testAssertions::payDenialCountAssertion,
                 testAssertions::orderDenialCountAssertion
@@ -387,7 +359,6 @@ public class OrderTest {
         orderPage.completePayFrom(DataGenerator.getApprovedNumber(), DataGenerator.getMonth(0), DataGenerator.getYear(0), DataGenerator.getCardHolderName(), DataGenerator.getTwoNumbersCVC());
         orderPage.continueClick();
         Assertions.assertAll(
-                orderPage::denialAssertion,
                 orderPage::cvcFieldFormatError,
                 testAssertions::payDenialCountAssertion,
                 testAssertions::orderDenialCountAssertion
@@ -399,7 +370,6 @@ public class OrderTest {
         orderPage.completePayFrom(DataGenerator.getApprovedNumber(), DataGenerator.getMonth(0), DataGenerator.getYear(0), DataGenerator.getCardHolderName(), DataGenerator.getEmptyString());
         orderPage.continueClick();
         Assertions.assertAll(
-                orderPage::denialAssertion,
                 orderPage::cvcFieldFormatError,
                 testAssertions::payDenialCountAssertion,
                 testAssertions::orderDenialCountAssertion

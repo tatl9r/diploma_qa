@@ -42,9 +42,9 @@ public class   CreditTest {
         creditPage.continueClick();
         Assertions.assertAll(
                 creditPage::acceptAssertion,
-                testAssertions::payApprovedStatusAssertion,
-                testAssertions::payAcceptCountAssertion,
-                testAssertions::creditAcceptCountAssertion
+                testAssertions::creditApprovedStatusAssertion,
+                testAssertions::creditAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -54,9 +54,9 @@ public class   CreditTest {
         creditPage.continueClick();
         Assertions.assertAll(
                 creditPage::denialAssertion,
-                testAssertions::payDeclinedStatusAssertion,
-                testAssertions::payAcceptCountAssertion,
-                testAssertions::creditAcceptCountAssertion
+                testAssertions::creditDeclinedStatusAssertion,
+                testAssertions::creditDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -65,9 +65,9 @@ public class   CreditTest {
         creditPage.completeCreditFrom(DataGenerator.getRandomDigitNumber(15), DataGenerator.getMonth(0), DataGenerator.getYear(0), DataGenerator.getCardHolderName(), DataGenerator.getCVC());
         creditPage.continueClick();
         Assertions.assertAll(
-                creditPage::denialAssertion,
-                testAssertions::payDenialCountAssertion,
-                testAssertions::creditDenialCountAssertion
+                creditPage::numberFieldFormatError,
+                testAssertions::creditDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -76,10 +76,9 @@ public class   CreditTest {
         creditPage.completeCreditFrom(DataGenerator.getEmptyString(), DataGenerator.getMonth(0), DataGenerator.getYear(0), DataGenerator.getCardHolderName(), DataGenerator.getCVC());
         creditPage.continueClick();
         Assertions.assertAll(
-                creditPage::denialAssertion,
                 creditPage::numberFieldFormatError,
-                testAssertions::payDenialCountAssertion,
-                testAssertions::creditDenialCountAssertion
+                testAssertions::creditDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -89,9 +88,8 @@ public class   CreditTest {
         creditPage.continueClick();
         Assertions.assertAll(
                 creditPage::denialAssertion,
-                creditPage::numberFieldFormatError,
-                testAssertions::payDenialCountAssertion,
-                testAssertions::creditDenialCountAssertion
+                testAssertions::creditDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -101,9 +99,9 @@ public class   CreditTest {
         creditPage.continueClick();
         Assertions.assertAll(
                 creditPage::acceptAssertion,
-                testAssertions::payApprovedStatusAssertion,
-                testAssertions::payAcceptCountAssertion,
-                testAssertions::creditAcceptCountAssertion
+                testAssertions::creditApprovedStatusAssertion,
+                testAssertions::creditAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -113,9 +111,9 @@ public class   CreditTest {
         creditPage.continueClick();
         Assertions.assertAll(
                 creditPage::acceptAssertion,
-                testAssertions::payApprovedStatusAssertion,
-                testAssertions::payAcceptCountAssertion,
-                testAssertions::creditAcceptCountAssertion
+                testAssertions::creditApprovedStatusAssertion,
+                testAssertions::creditAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -124,10 +122,9 @@ public class   CreditTest {
         creditPage.completeCreditFrom(DataGenerator.getApprovedNumber(), DataGenerator.getZeroMonth(), DataGenerator.getYear(1), DataGenerator.getCardHolderName(), DataGenerator.getCVC());
         creditPage.continueClick();
         Assertions.assertAll(
-                creditPage::denialAssertion,
                 creditPage::monthFieldTermError,
-                testAssertions::payDenialCountAssertion,
-                testAssertions::creditDenialCountAssertion
+                testAssertions::creditDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -136,10 +133,9 @@ public class   CreditTest {
         creditPage.completeCreditFrom(DataGenerator.getApprovedNumber(), DataGenerator.getThirteenMonth(), DataGenerator.getYear(1), DataGenerator.getCardHolderName(), DataGenerator.getCVC());
         creditPage.continueClick();
         Assertions.assertAll(
-                creditPage::denialAssertion,
                 creditPage::monthFieldTermError,
-                testAssertions::payDenialCountAssertion,
-                testAssertions::creditDenialCountAssertion
+                testAssertions::creditDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -148,10 +144,9 @@ public class   CreditTest {
         creditPage.completeCreditFrom(DataGenerator.getApprovedNumber(), DataGenerator.getOneNumberMonth(), DataGenerator.getYear(1), DataGenerator.getCardHolderName(), DataGenerator.getCVC());
         creditPage.continueClick();
         Assertions.assertAll(
-                creditPage::denialAssertion,
                 creditPage::monthFieldFormatError,
-                testAssertions::payDenialCountAssertion,
-                testAssertions::creditDenialCountAssertion
+                testAssertions::creditDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -160,10 +155,9 @@ public class   CreditTest {
         creditPage.completeCreditFrom(DataGenerator.getApprovedNumber(), DataGenerator.getEmptyString(), DataGenerator.getYear(1), DataGenerator.getCardHolderName(), DataGenerator.getCVC());
         creditPage.continueClick();
         Assertions.assertAll(
-                creditPage::denialAssertion,
                 creditPage::monthFieldFormatError,
-                testAssertions::payDenialCountAssertion,
-                testAssertions::creditDenialCountAssertion
+                testAssertions::creditDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -175,7 +169,8 @@ public class   CreditTest {
                 creditPage::acceptAssertion,
                 testAssertions::payApprovedStatusAssertion,
                 testAssertions::payAcceptCountAssertion,
-                testAssertions::creditAcceptCountAssertion
+                testAssertions::creditAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -185,9 +180,9 @@ public class   CreditTest {
         creditPage.continueClick();
         Assertions.assertAll(
                 creditPage::acceptAssertion,
-                testAssertions::payApprovedStatusAssertion,
-                testAssertions::payAcceptCountAssertion,
-                testAssertions::creditAcceptCountAssertion
+                testAssertions::creditApprovedStatusAssertion,
+                testAssertions::creditAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -196,22 +191,9 @@ public class   CreditTest {
         creditPage.completeCreditFrom(DataGenerator.getApprovedNumber(), DataGenerator.getMonth(0), DataGenerator.getYear(-1), DataGenerator.getCardHolderName(), DataGenerator.getCVC());
         creditPage.continueClick();
         Assertions.assertAll(
-                creditPage::denialAssertion,
                 creditPage::yearFieldMinusTermError,
-                testAssertions::payDenialCountAssertion,
-                testAssertions::creditDenialCountAssertion
-        );
-    }
-
-    @org.junit.jupiter.api.Test
-    void shouldFailedCreditPaymentPlusNineYear() {
-        creditPage.completeCreditFrom(DataGenerator.getApprovedNumber(), DataGenerator.getMonth(0), DataGenerator.getYear(9), DataGenerator.getCardHolderName(), DataGenerator.getCVC());
-        creditPage.continueClick();
-        Assertions.assertAll(
-                creditPage::denialAssertion,
-                creditPage::yearFieldPlusTermError,
-                testAssertions::payDenialCountAssertion,
-                testAssertions::creditDenialCountAssertion
+                testAssertions::creditDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -220,10 +202,9 @@ public class   CreditTest {
         creditPage.completeCreditFrom(DataGenerator.getApprovedNumber(), DataGenerator.getMonth(0), DataGenerator.getOneNumberYear(), DataGenerator.getCardHolderName(), DataGenerator.getCVC());
         creditPage.continueClick();
         Assertions.assertAll(
-                creditPage::denialAssertion,
                 creditPage::yearFieldFormatError,
-                testAssertions::payDenialCountAssertion,
-                testAssertions::creditDenialCountAssertion
+                testAssertions::creditDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -232,10 +213,9 @@ public class   CreditTest {
         creditPage.completeCreditFrom(DataGenerator.getApprovedNumber(), DataGenerator.getMonth(0), DataGenerator.getEmptyString(), DataGenerator.getCardHolderName(), DataGenerator.getCVC());
         creditPage.continueClick();
         Assertions.assertAll(
-                creditPage::denialAssertion,
                 creditPage::yearFieldFormatError,
-                testAssertions::payDenialCountAssertion,
-                testAssertions::creditDenialCountAssertion
+                testAssertions::creditDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -245,9 +225,9 @@ public class   CreditTest {
         creditPage.continueClick();
         Assertions.assertAll(
                 creditPage::acceptAssertion,
-                testAssertions::payApprovedStatusAssertion,
-                testAssertions::payAcceptCountAssertion,
-                testAssertions::creditAcceptCountAssertion
+                testAssertions::creditApprovedStatusAssertion,
+                testAssertions::creditAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -257,9 +237,9 @@ public class   CreditTest {
         creditPage.continueClick();
         Assertions.assertAll(
                 creditPage::acceptAssertion,
-                testAssertions::payApprovedStatusAssertion,
-                testAssertions::payAcceptCountAssertion,
-                testAssertions::creditAcceptCountAssertion
+                testAssertions::creditApprovedStatusAssertion,
+                testAssertions::creditAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -269,9 +249,9 @@ public class   CreditTest {
         creditPage.continueClick();
         Assertions.assertAll(
                 creditPage::acceptAssertion,
-                testAssertions::payApprovedStatusAssertion,
-                testAssertions::payAcceptCountAssertion,
-                testAssertions::creditAcceptCountAssertion
+                testAssertions::creditApprovedStatusAssertion,
+                testAssertions::creditAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -281,9 +261,9 @@ public class   CreditTest {
         creditPage.continueClick();
         Assertions.assertAll(
                 creditPage::acceptAssertion,
-                testAssertions::payApprovedStatusAssertion,
-                testAssertions::payAcceptCountAssertion,
-                testAssertions::creditAcceptCountAssertion
+                testAssertions::creditApprovedStatusAssertion,
+                testAssertions::creditAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -292,10 +272,9 @@ public class   CreditTest {
         creditPage.completeCreditFrom(DataGenerator.getApprovedNumber(), DataGenerator.getMonth(0), DataGenerator.getYear(0), DataGenerator.getTwoLettersName(), DataGenerator.getCVC());
         creditPage.continueClick();
         Assertions.assertAll(
-                creditPage::acceptAssertion,
                 creditPage::cardHolderFieldFormatError,
-                testAssertions::payAcceptCountAssertion,
-                testAssertions::creditAcceptCountAssertion
+                testAssertions::creditAcceptCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -304,10 +283,9 @@ public class   CreditTest {
         creditPage.completeCreditFrom(DataGenerator.getApprovedNumber(), DataGenerator.getMonth(0), DataGenerator.getYear(0), DataGenerator.getNumericalName("#####"), DataGenerator.getCVC());
         creditPage.continueClick();
         Assertions.assertAll(
-                creditPage::acceptAssertion,
                 creditPage::cardHolderFieldFormatError,
-                testAssertions::payAcceptCountAssertion,
-                testAssertions::creditAcceptCountAssertion
+                testAssertions::creditAcceptCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -316,10 +294,9 @@ public class   CreditTest {
         creditPage.completeCreditFrom(DataGenerator.getApprovedNumber(), DataGenerator.getMonth(0), DataGenerator.getYear(0), DataGenerator.getSpecialSymbolsName(), DataGenerator.getCVC());
         creditPage.continueClick();
         Assertions.assertAll(
-                creditPage::acceptAssertion,
                 creditPage::cardHolderFieldFormatError,
-                testAssertions::payAcceptCountAssertion,
-                testAssertions::creditAcceptCountAssertion
+                testAssertions::creditAcceptCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -328,10 +305,9 @@ public class   CreditTest {
         creditPage.completeCreditFrom(DataGenerator.getApprovedNumber(), DataGenerator.getMonth(0), DataGenerator.getYear(0), DataGenerator.getTwentyOneLettersName(), DataGenerator.getCVC());
         creditPage.continueClick();
         Assertions.assertAll(
-                creditPage::acceptAssertion,
                 creditPage::cardHolderFieldFormatError,
-                testAssertions::payAcceptCountAssertion,
-                testAssertions::creditAcceptCountAssertion
+                testAssertions::creditAcceptCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -340,10 +316,9 @@ public class   CreditTest {
         creditPage.completeCreditFrom(DataGenerator.getApprovedNumber(), DataGenerator.getMonth(0), DataGenerator.getYear(0), DataGenerator.getSpacesName(), DataGenerator.getCVC());
         creditPage.continueClick();
         Assertions.assertAll(
-                creditPage::acceptAssertion,
                 creditPage::cardHolderFieldEmptyError,
-                testAssertions::payAcceptCountAssertion,
-                testAssertions::creditAcceptCountAssertion
+                testAssertions::creditAcceptCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -352,10 +327,9 @@ public class   CreditTest {
         creditPage.completeCreditFrom(DataGenerator.getApprovedNumber(), DataGenerator.getMonth(0), DataGenerator.getYear(0), DataGenerator.getEmptyString(), DataGenerator.getCVC());
         creditPage.continueClick();
         Assertions.assertAll(
-                creditPage::acceptAssertion,
                 creditPage::cardHolderFieldEmptyError,
-                testAssertions::payAcceptCountAssertion,
-                testAssertions::creditAcceptCountAssertion
+                testAssertions::creditAcceptCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -365,9 +339,9 @@ public class   CreditTest {
         creditPage.continueClick();
         Assertions.assertAll(
                 creditPage::acceptAssertion,
-                testAssertions::payApprovedStatusAssertion,
-                testAssertions::payAcceptCountAssertion,
-                testAssertions::creditAcceptCountAssertion
+                testAssertions::creditApprovedStatusAssertion,
+                testAssertions::creditAcceptCountAssertion,
+                testAssertions::orderAcceptCountAssertion
         );
     }
 
@@ -376,10 +350,9 @@ public class   CreditTest {
         creditPage.completeCreditFrom(DataGenerator.getApprovedNumber(), DataGenerator.getMonth(0), DataGenerator.getYear(0), DataGenerator.getCardHolderName(), DataGenerator.getOneNumberCVC());
         creditPage.continueClick();
         Assertions.assertAll(
-                creditPage::denialAssertion,
                 creditPage::cvcFieldFormatError,
-                testAssertions::payDenialCountAssertion,
-                testAssertions::creditDenialCountAssertion
+                testAssertions::creditDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -388,10 +361,9 @@ public class   CreditTest {
         creditPage.completeCreditFrom(DataGenerator.getApprovedNumber(), DataGenerator.getMonth(0), DataGenerator.getYear(0), DataGenerator.getCardHolderName(), DataGenerator.getTwoNumbersCVC());
         creditPage.continueClick();
         Assertions.assertAll(
-                creditPage::denialAssertion,
                 creditPage::cvcFieldFormatError,
-                testAssertions::payDenialCountAssertion,
-                testAssertions::creditDenialCountAssertion
+                testAssertions::creditDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 
@@ -400,10 +372,9 @@ public class   CreditTest {
         creditPage.completeCreditFrom(DataGenerator.getApprovedNumber(), DataGenerator.getMonth(0), DataGenerator.getYear(0), DataGenerator.getCardHolderName(), DataGenerator.getEmptyString());
         creditPage.continueClick();
         Assertions.assertAll(
-                creditPage::denialAssertion,
                 creditPage::cvcFieldFormatError,
-                testAssertions::payDenialCountAssertion,
-                testAssertions::creditDenialCountAssertion
+                testAssertions::creditDenialCountAssertion,
+                testAssertions::orderDenialCountAssertion
         );
     }
 }

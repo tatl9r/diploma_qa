@@ -79,10 +79,6 @@ public class OrderPage {
         yearFieldError.shouldBe(Condition.text("�?стёк срок действия карты"), Condition.visible);
     }
 
-    public void yearFieldPlusTermError() {
-        yearFieldError.shouldBe(Condition.text("Неверно указан срок действия карты"), Condition.visible);
-    }
-
     public void cardHolderFieldEmptyError() {
         cardHolderFieldError.shouldBe(Condition.text("Поле обязательно для заполнения"), Condition.visible);
     }

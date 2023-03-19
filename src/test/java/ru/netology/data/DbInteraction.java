@@ -3,7 +3,6 @@ package ru.netology.data;
 import lombok.SneakyThrows;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
-
 import java.sql.DriverManager;
 
 public class DbInteraction {
@@ -60,7 +59,6 @@ public class DbInteraction {
 
     @SneakyThrows
     public static void clearDataBase() {
-
         var deleteOrder = "DELETE FROM order_entity;";
         var deletePayment = "DELETE FROM payment_entity;";
         var deleteCredit = "DELETE FROM credit_request_entity;";

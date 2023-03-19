@@ -42,7 +42,7 @@ public class TestAssertions {
 
     public void creditApprovedStatusAssertion() {
         var statusExpected = "APPROVED";
-        var statusActual = DbInteraction.getDataBasePaymentStatus();
+        var statusActual = DbInteraction.getDataBaseCreditStatus();
         Assertions.assertEquals(statusExpected, statusActual);
     }
 
